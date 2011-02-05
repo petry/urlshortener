@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>Encurtador de urls</title>
+	<!--[if lt IE 8]><link rel="stylesheet" href="{{MEDIA_URL}}css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{MEDIA_URL}}css/blueprint/screen.css"/>
+	<link rel="stylesheet" type="text/css" media="print" href="{{MEDIA_URL}}css/blueprint/print.css"/>
+	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{MEDIA_URL}}css/layout.css"/>
+</head>
+
+<body>
+	<div class="container">
+		<div class="right">
+			{%if user.is_authenticated%}
+				<span class="border">{{user}}</span>
+				<span class="border"><a href="{%url auth-pass-change%}">Change Password</a></span>
+				
+				
+				<span><a href="{%url auth-logout%}">Logout</a></span>
+			{%else%}
+				<span class="border"><a href="{%url auth-login%}">Login</a></span>
+				<span><a href="{%url auth-pass-reset%}">Forgot your password?</a></span>
+				
+			{%endif%}
+		</div>
+		<hr>
+		
+		<h1>URL Shortener - example project</h1>
+		{%block content%}
+
+		{%endblock%}
+	</div>
+
+
+</body>
+<script type="text/javascript" charset="utf-8" src="{{MEDIA_URL}}js/jquery-1.5.min.js"></script>
+
+</html>
