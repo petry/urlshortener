@@ -1,14 +1,28 @@
 {%extends "base.html" %}
+{% load i18n %}
+
 {%block content%}
 
 	{%if form.errors%}
+	<div class="box">
+	
 		<form action="{%url shorturl-shorten%}" method="POST">
 			{% csrf_token %}
 			{{form}}
-			<input type="submit" value="shorten">
+			<input type="submit" value="{% trans 'shorten' %}">
 		</form>	
+		</div>
+		
 	{%else%}
-	  the short url is: <b>{{form.instance.short_url}}</b>
+		<p class="box">
+	  	<span class="clearfix">
+				{%trans 'The short url is'%}: <b><a href="{{form.instance.short_url}}">{{form.instance.short_url}}</a></b>
+			</span>
+			<span>
+				<input type="text" value="{{form.instance.short_url}}">
+			</span>
+		</p>
+		
 	{%endif%}
 
 {%endblock%}

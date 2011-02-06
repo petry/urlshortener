@@ -1,16 +1,19 @@
 # Create your views here.
-from django.http import HttpResponse, HttpResponsePermanentRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.template.context import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
-from shorturl.models import Url, Visitor
+from shorturl.models import Url, Access
 from shorturl.forms import ShortForm
 from django.utils import simplejson
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
 
 
 def home(request):
     form = ShortForm()
+
+    
     return render_to_response('shorturl/home.html',
         locals(),
         context_instance=RequestContext(request))
@@ -19,11 +22,23 @@ def home(request):
 def url_redirect(request, short_code):
     object = get_object_or_404(Url.objects.all(), short_code=short_code)
     if request.META.has_key('REMOTE_ADDR') and request.META.has_key('HTTP_USER_AGENT'):
-        Visitor.objects.create(url = object, 
+        Access.objects.create(url = object, 
             remote_address = request.META['REMOTE_ADDR'],
             user_agent = request.META['HTTP_USER_AGENT']
             )
     return HttpResponsePermanentRedirect(object.long_url)
+
+
+@login_required
+def url_detail(request, short_code):
+    object = get_object_or_404(Url.objects.all(), short_code=short_code)   
+    if object.user != request.user: 
+        messages.error(request, 'This URL no belont to you')
+        return HttpResponseRedirect(reverse('shorturl-home'))
+        
+    return render_to_response('shorturl/detail.html',
+        locals(),
+        context_instance=RequestContext(request))
 
 def shorten(request):
     if request.method == 'POST':

@@ -104,16 +104,15 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.admin',
+    'django.contrib.humanize',
     
     'shorturl',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'account',
 )
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/u/login/'
 
 DEFAULT_FROM_EMAIL = 'example@example.com.br'
 if DEBUG:
@@ -122,11 +121,11 @@ if DEBUG:
     EMAIL_HOST = 'localhost'
     EMAIL_PORT = 1025
 else:
-    SERVER_EMAIL = 'webmaster@visaodovale.com.br'
+    SERVER_EMAIL = 'xxx@gmail.com.br'
     EMAIL_HOST = 'smtp.gmail.com'
     EMAIL_PORT = 587
-    EMAIL_HOST_USER = 'webmaster@visaodovale.com.br'
-    EMAIL_HOST_PASSWORD = 'site1234'
+    EMAIL_HOST_USER = 'xxx@gmail.com.br'
+    EMAIL_HOST_PASSWORD = 'xxx'
     EMAIL_USE_TLS = True
 
 

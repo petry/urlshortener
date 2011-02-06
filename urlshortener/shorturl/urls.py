@@ -6,5 +6,6 @@ urlpatterns = patterns('shorturl.views',
 
 
     url(r'^(?P<short_code>[\d\w]+)/$', 'url_redirect', name='shorturl-urlredirect'),
+    url(r'^(?P<short_code>[\d\w]+)/details$', 'url_detail', name='shorturl-urldetail'),
 
 )

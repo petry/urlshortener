@@ -1,7 +1,27 @@
+ul.messages{
+    list-style-type: none;
+    margin: 0;
+     padding: 0;   
+}
 
 form ul.errorlist{
     color: red;
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+form label{
+    display:block;
+}
+
+.warning {
+    background: none repeat scroll 0 0 #FFF6BF;
+    color: #514721;
+    border: 2px solid #FFD324;
+    margin-bottom: 1em;
+    padding: 0.8em;
+}
+
+.box{
+    border: 2px solid #92CAE4;
 }

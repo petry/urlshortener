@@ -1,10 +1,11 @@
+{% load i18n %}
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-	<title>Encurtador de urls</title>
+	<title>{%trans 'Shortened URLs'%}</title>
 	<!--[if lt IE 8]><link rel="stylesheet" href="{{MEDIA_URL}}css/blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
 	<link rel="stylesheet" type="text/css" media="screen, projection" href="{{MEDIA_URL}}css/blueprint/screen.css"/>
 	<link rel="stylesheet" type="text/css" media="print" href="{{MEDIA_URL}}css/blueprint/print.css"/>
@@ -13,22 +14,46 @@
 
 <body>
 	<div class="container">
+		<div class="left">
+			<span>
+				<a href="{%url shorturl-home%}">{% trans 'Home'%}</a>
+			</span>
+			
+		</div>
 		<div class="right">
 			{%if user.is_authenticated%}
-				<span class="border">{{user}}</span>
-				<span class="border"><a href="{%url auth-pass-change%}">Change Password</a></span>
+				<span class="border">
+					{%if user.get_full_name%}
+						{{user.get_full_name}}
+					{%else%}
+						{{user}}
+					{%endif%}
+				</span>
+				<span class="border"><a href="{%url auth-edit%}">{%trans 'Change details'%}</a></span>
+
+				<span class="border"><a href="{%url auth-pass-change%}">{%trans 'Change Password'%}</a></span>
 				
 				
-				<span><a href="{%url auth-logout%}">Logout</a></span>
+				<span><a href="{%url auth-logout%}">{%trans 'Logout' %}</a></span>
 			{%else%}
-				<span class="border"><a href="{%url auth-login%}">Login</a></span>
-				<span><a href="{%url auth-pass-reset%}">Forgot your password?</a></span>
+				<span class="border"><a href="{%url auth-signup%}">{%trans 'Signup'%}</a></span>
+				<span class="border"><a href="{%url auth-login%}">{%trans 'Login'%}</a></span>
+				<span><a href="{%url auth-pass-reset%}">{%trans 'Forgot your password?'%}</a></span>
 				
 			{%endif%}
 		</div>
 		<hr>
 		
-		<h1>URL Shortener - example project</h1>
+		{% if messages %}
+		<ul class="messages">
+		   {% for message in messages %}
+		    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		    
+			{% endfor %}
+		</ul>
+		{% endif %}
+		
+		<h1>{%trans 'Shortened URLs'%} - {%trans 'Example project'%}</h1>
 		{%block content%}
 
 		{%endblock%}

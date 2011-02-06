@@ -1,25 +1,28 @@
 {%extends "base.html" %}
-{%block content%}
-	<h2>Details from url "{{object.short_url}}"</h2>
+{% load i18n %}
 
-	<h3>Visitors Details</h3>
+{%block content%}
+
+	<h2>{% trans 'Details from url'%} "{{object.short_url}}"</h2>
+
+	<h3>{%trans 'Access Details'%}</h3>
 		<table summary="Your Urls">
 			<thead>
 				<tr>
-					<th>Data</th>
-					<th>Remote Address</th>
-					<th>User Agent</th>
+					<th>{% trans 'Data' %}</th>
+					<th>{% trans 'Remote Address'%}</th>
+					<th>{% trans 'User Agent' %}</th>
 				</tr>
 			</thead>
 			<tbody>
-				{%for visitor in object.visitor_set.all%}
+				{%for access in object.access_set.all%}
 				<tr>
-					<td>{{visitor.data_access}}</td>
-					<td>{{visitor.remote_address}}</td>
-					<td>{{visitor.user_agent}}</td>
+					<td>{{access.data_access}}</td>
+					<td>{{access.remote_address}}</td>
+					<td>{{access.user_agent}}</td>
 				</tr>
 				{%empty%}
-					<td colspan="3">No data</td>
+					<td colspan="3">{% trans 'No data' %}</td>
 				{%endfor%}
 				
 			</tbody>

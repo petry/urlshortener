@@ -1,7 +1,8 @@
 {%extends "base.html" %}
-{%block content%}
+{% load i18n %}
 
-	<h2>Home</h2>
+{%block content%}
+	<h2>{% trans 'Home' %}</h2>
 	
 	<div class="box">
 		<form action="{%url shorturl-shorten%}" method="POST">
@@ -10,5 +11,34 @@
 			<input type="submit" value="shorten">
 		</form>
 	</div>
+	
+	{%if user.is_authenticated%}
+		<table>
+			<thead>
+				<tr>
+					<th>{%trans 'Long Url'%}</th>
+					<th>{%trans 'Short Url'%}</th>
+					<th>{%trans 'Created at'%}</th>
+					<th colspan="2">{%trans 'Clicks'%}</th>
+				</tr>
+			</thead>
+			<tbody>
+				{%for url in user.url_set.all%}
+				<tr>
+					<td><a href="{{url.long_url}}" target="_blank">{{url.long_url}}</a></td>
+					<td><a href="{{url.short_url}}" target="_blank">{{url.short_url}}</a></td>
+					<td>{{url.data_added|timesince}}</td>
+					<td>{{url.access_set.count}}</td>
+					<td><a href="{{url.get_absolute_url }}">{%trans 'Details'%}</a></td>
+				</tr>
+				{%empty%}
+					<td colspan="4">{%trans 'No data'%}</td>
+				
+				{%endfor%}
+				
+			</tbody>
+		</table>	
+	
+	{%endif%}
 
 {%endblock%}

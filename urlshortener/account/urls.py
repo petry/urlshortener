@@ -13,3 +13,9 @@ urlpatterns = patterns('django.contrib.auth.views',
     ,url(r'^password/reset/complete/$', 'password_reset_complete', name='auth-pass-reset-complete')
 
 )
+urlpatterns += patterns('account.views',
+    url(r'^edit/$', 'edit', name='auth-edit'),
+    url(r'^signup/$', 'signup', name='auth-signup')
+)
+
+
