@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Marcos Daniel Petry <marcospetry@gmail.com>, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Projects urlshortener\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-02-06 16:20-0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Marcos Daniel Petry <marcospetry@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Portuguê Brasileiro\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+
+#: templates/404.html:5
+msgid "This page not exist"
+msgstr "Esta página não existe"
+
+#: templates/base.html:8 templates/base.html.py:56
+msgid "Shortened URLs"
+msgstr "Encurtador de URLs"
+
+#: templates/base.html:32
+msgid "Change account details"
+msgstr "Alterar detalhes da conta"
+
+#: templates/base.html:34
+msgid "Change Password"
+msgstr "Alterar Senha"
+
+#: templates/base.html:37
+msgid "Logout"
+msgstr "Sair"
+
+#: templates/base.html:40
+msgid "Login"
+msgstr "Entrar"
+
+#: templates/base.html:41
+msgid "Forgot your password?"
+msgstr "Esqueceu sua senha?"
+
+#: templates/base.html:56
+msgid "Example project"
+msgstr "Projeto de Exemplo"
