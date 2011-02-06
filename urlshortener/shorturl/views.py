@@ -8,6 +8,7 @@ from django.utils import simplejson
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import ugettext_lazy as _
 
 
 def home(request):
@@ -33,7 +34,7 @@ def url_redirect(request, short_code):
 def url_detail(request, short_code):
     object = get_object_or_404(Url.objects.all(), short_code=short_code)   
     if object.user != request.user: 
-        messages.error(request, 'This URL no belont to you')
+        messages.error(request, _('This URL no belont to you'))
         return HttpResponseRedirect(reverse('shorturl-home'))
         
     return render_to_response('shorturl/detail.html',
@@ -58,9 +59,9 @@ def shorten(request):
         else:
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Url was shorted')
+                messages.success(request, _('Url was shorted'))
             else:
-                messages.error(request, 'Url not shorted')
+                messages.error(request, _('Url not shorted'))
                 
     return render_to_response('shorturl/shorten.html',
         locals(),

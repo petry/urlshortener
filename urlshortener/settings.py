@@ -103,11 +103,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
-    'django.contrib.admin',
     'django.contrib.humanize',
+    'django.contrib.admin',
     
     'shorturl',
     'account',
+    
 )
 SITE_ID = 1
 

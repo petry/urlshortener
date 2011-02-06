@@ -24,7 +24,7 @@ class Url(models.Model):
 
 class Access(models.Model):
     url = models.ForeignKey(Url)
-    data_access = models.DateTimeField(auto_now_add=True, editable=False)
+    date_access = models.DateTimeField(auto_now_add=True, editable=False)
     remote_address = models.CharField(max_length=15)
     user_agent = models.CharField(max_length=150)
 

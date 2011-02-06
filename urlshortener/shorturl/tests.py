@@ -21,7 +21,7 @@ class ConverterTest(TestCase):
         
         
 class RequestTest(TestCase):
-    fixtures = ['shorturl/fixtures/test_users.json', 'shorturl/fixtures/test_urls.json']
+    fixtures = ['account/fixtures/test_users.json', 'shorturl/fixtures/test_urls.json']
     
     def setUp(self):
         self.client = Client() 
@@ -48,7 +48,6 @@ class RequestTest(TestCase):
     
     
     def test_detail(self):
-        
         #annonymous user
         response = self.client.get(reverse('shorturl-urldetail', args=['C']))
         self.assertRedirects(response=response, 

@@ -1,23 +1,52 @@
-"""
-This file demonstrates two different styles of tests (one doctest and one
-unittest). These will both pass when you run "manage.py test".
 
-Replace these with more appropriate tests for your application.
-"""
 
 from django.test import TestCase
+from shorturl.converter import base62_urlsafe
+from django.test.client import Client
+from shorturl.models import Url
+from django.core.urlresolvers import reverse
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.failUnlessEqual(1 + 1, 2)
 
-__test__ = {"doctest": """
-Another way to test that 1 + 1 is equal to 2.
+class RequestTest(TestCase):
+    fixtures = ['account/fixtures/test_users.json', 'shorturl/fixtures/test_urls.json']
+    
+    def setUp(self):
+        self.client = Client() 
+     
+        
+    def test_signup(self):
+        #annonymous user
+        response = self.client.get(reverse('auth-signup'))
+        self.assertEqual(response.status_code,200)
+        
+        #signup sucessful
+        response = self.client.post(reverse('auth-signup'), 
+            {'username': 'testX', 'password1': 'x', 'password2':'x'})
+        self.assertRedirects(response=response, 
+            expected_url="%s" % reverse('auth-login') )
 
->>> 1 + 1 == 2
-True
-"""}
+        #wrong password
+        response = self.client.post(reverse('auth-signup'), 
+            {'username': 'testX', 'password1': 'x', 'password2':'xxxx'})
+        self.assertFalse(response.context['form'].is_valid())
+        self.assertEqual(response.status_code,200)
+    
+    
+    def test_edit(self):
+        #annonymous user
+        response = self.client.get(reverse('auth-edit'))
+        self.assertRedirects(response=response, 
+            expected_url="%s?next=%s" % (reverse('auth-login'), reverse('auth-edit')))
+
+        self.client.login(username='user1', password='b')
+        response = self.client.get(reverse('auth-edit'))
+        self.assertEqual(response.status_code,200)
+
+
+
+
+        
+    
+
+
 

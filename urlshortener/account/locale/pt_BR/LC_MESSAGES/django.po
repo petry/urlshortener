@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Account App\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-06 16:20-0200\n"
+"POT-Creation-Date: 2011-02-06 17:50-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marcos Daniel Petry <marcospetry@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,8 @@ msgstr "Nome do usuário"
 
 #: forms.py:7
 msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
-msgstr "Obrigatório, 30 caracteres ou menos. somente letras, numeros ou @/./+/-/_"
+msgstr ""
+"Obrigatório, 30 caracteres ou menos. somente letras, numeros ou @/./+/-/_"
 
 #: forms.py:8
 msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
@@ -58,116 +59,82 @@ msgstr "Alterar detalhes"
 msgid "Signup"
 msgstr "Cadastro"
 
-#: templates/account/signup.html:6 templates/registration/login.html:6
+#: templates/account/signup.html:6
 msgid "You are already logged"
 msgstr "Você já está logado"
 
-#: templates/registration/login.html:12
-#: templates/registration/password_reset_complete.html:10
-msgid "Log in"
-msgstr "Entrar"
+#~ msgid "Log in"
+#~ msgstr "Entrar"
 
-#: templates/registration/password_change_done.html:4
-msgid "Password change"
-msgstr "Senha alterada"
+#~ msgid "Password change"
+#~ msgstr "Senha alterada"
 
-#: templates/registration/password_change_done.html:6
-msgid "Your password was changed."
-msgstr "Sua senha foi alterada"
+#~ msgid "Your password was changed."
+#~ msgstr "Sua senha foi alterada"
 
-#: templates/registration/password_change_done.html:8
-msgid "Back to home"
-msgstr "Voltar ao inínio"
+#~ msgid "Back to home"
+#~ msgstr "Voltar ao inínio"
 
-#: templates/registration/password_change_form.html:5
-msgid ""
-"Please enter your old password, for security's sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
-msgstr ""
-"Por favor, informe sua senha antiga, por segurança, e então informe sua nova "
-"senha duas vezes para que possamos verificar se você digitou corretamente."
+#~ msgid ""
+#~ "Please enter your old password, for security's sake, and then enter your "
+#~ "new password twice so we can verify you typed it in correctly."
+#~ msgstr ""
+#~ "Por favor, informe sua senha antiga, por segurança, e então informe sua "
+#~ "nova senha duas vezes para que possamos verificar se você digitou "
+#~ "corretamente."
 
+#~ msgid "Change my password"
+#~ msgstr "Alterar minha senha"
 
-#: templates/registration/password_change_form.html:10
-#: templates/registration/password_reset_confirm.html:15
-msgid "Change my password"
-msgstr "Alterar minha senha"
+#~ msgid "Password reset"
+#~ msgstr "Recuperar senha"
 
-#: templates/registration/password_reset_complete.html:6
-#: templates/registration/password_reset_confirm.html:8
-#: templates/registration/password_reset_done.html:6
-#: templates/registration/password_reset_form.html:6
-msgid "Password reset"
-msgstr "Recuperar senha"
+#~ msgid "Your password has been set.  You may go ahead and log in now."
+#~ msgstr "Sua senha foi definida. Você pode prosseguir e se autenticar agora."
 
-#: templates/registration/password_reset_complete.html:8
-msgid "Your password has been set.  You may go ahead and log in now."
-msgstr "Sua senha foi definida. Você pode prosseguir e se autenticar agora."
+#~ msgid ""
+#~ "Please enter your new password twice so we can verify you typed it in "
+#~ "correctly."
+#~ msgstr ""
+#~ "Por favor, informe sua nova senha duas vezes para que possamos verificar "
+#~ "se você a digitou corretamente."
 
-#: templates/registration/password_reset_confirm.html:10
-msgid ""
-"Please enter your new password twice so we can verify you typed it in "
-"correctly."
-msgstr ""
-"Por favor, informe sua nova senha duas vezes para que possamos verificar se "
-"você a digitou corretamente."
+#~ msgid ""
+#~ "The password reset link was invalid, possibly because it has already been "
+#~ "used.  Please request a new password reset."
+#~ msgstr ""
+#~ "O link para a recuperação de senha era inválido, possivelmente porque jã "
+#~ "foi utilizado. Por favor, solicite uma nova recuperação de senha."
 
+#~ msgid "Password reset successful"
+#~ msgstr "Senha recuperada com sucesso"
 
-#: templates/registration/password_reset_confirm.html:21
-msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used.  Please request a new password reset."
-msgstr ""
-"O link para a recuperação de senha era inválido, possivelmente porque jã foi "
-"utilizado. Por favor, solicite uma nova recuperação de senha."
+#~ msgid "You're receiving this e-mail because you requested a password reset"
+#~ msgstr ""
+#~ "Enviamos as instruções de como definir sua nova senha para o e-mail que "
+#~ "você informou. Você deverá recebê-las em breve."
 
-#: templates/registration/password_reset_done.html:8
-msgid "Password reset successful"
-msgstr "Senha recuperada com sucesso"
+#~ msgid "for your user account at %(site_name)s"
+#~ msgstr "para sua conta em %(site_name)s"
 
-#: templates/registration/password_reset_done.html:10
-msgid ""
-"We've e-mailed you instructions for setting your password to the e-mail "
-"address you submitted. You should be receiving it shortly."
-msgstr ""
+#~ msgid "Please go to the following page and choose a new password:"
+#~ msgstr "Por favor, acesse a seguinte página e escolha uma nova senha:"
 
-#: templates/registration/password_reset_email.html:2
-msgid "You're receiving this e-mail because you requested a password reset"
-msgstr ""
-"Enviamos as instruções de como definir sua nova senha para o e-mail que você "
-"informou. Você deverá recebê-las em breve."
+#~ msgid "Your username, in case you've forgotten:"
+#~ msgstr "Seu nome de usuário, caso tenha esquecido:"
 
+#~ msgid "Thanks for using our site!"
+#~ msgstr "Obrigado por usar nosso site!"
 
-#: templates/registration/password_reset_email.html:3
-#, python-format
-msgid "for your user account at %(site_name)s"
-msgstr "para sua conta em %(site_name)s"
+#~ msgid "The %(site_name)s team"
+#~ msgstr "Equipe %(site_name)s"
 
-#: templates/registration/password_reset_email.html:5
-msgid "Please go to the following page and choose a new password:"
-msgstr "Por favor, acesse a seguinte página e escolha uma nova senha:"
+#~ msgid ""
+#~ "Forgotten your password? Enter your e-mail address below, and we'll e-"
+#~ "mail instructions for setting a new one."
+#~ msgstr ""
+#~ "Esqueceu sua senha? Digite seu e-mail abaixo e receberá instruções para "
+#~ "definir uma nova."
 
-#: templates/registration/password_reset_email.html:9
-msgid "Your username, in case you've forgotten:"
-msgstr "Seu nome de usuário, caso tenha esquecido:"
-
-#: templates/registration/password_reset_email.html:11
-msgid "Thanks for using our site!"
-msgstr "Obrigado por usar nosso site!"
-
-#: templates/registration/password_reset_email.html:13
-#, python-format
-msgid "The %(site_name)s team"
-msgstr "Equipe %(site_name)s"
-
-#: templates/registration/password_reset_form.html:8
-msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll e-mail "
-"instructions for setting a new one."
-msgstr ""
-"Esqueceu sua senha? Digite seu e-mail abaixo e receberá instruções para "
-"definir uma nova."
-
-#: templates/registration/password_reset_form.html:12
-msgid "Reset my password"
-msgstr "Recuperar minha senha"
+#~ msgid "Reset my password"
+#~ msgstr "Recuperar minha senha"

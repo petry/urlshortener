@@ -9,7 +9,7 @@
 		<table summary="Your Urls">
 			<thead>
 				<tr>
-					<th>{% trans 'Data' %}</th>
+					<th>{% trans 'Date' %}</th>
 					<th>{% trans 'Remote Address'%}</th>
 					<th>{% trans 'User Agent' %}</th>
 				</tr>
@@ -17,7 +17,7 @@
 			<tbody>
 				{%for access in object.access_set.all%}
 				<tr>
-					<td>{{access.data_access}}</td>
+					<td>{{access.date_access}}</td>
 					<td>{{access.remote_address}}</td>
 					<td>{{access.user_agent}}</td>
 				</tr>
