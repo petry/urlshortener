@@ -1,0 +1,58 @@
+[
+  {
+    "pk": 1, 
+    "model": "shorturl.url", 
+    "fields": {
+      "short_code": "B", 
+      "clicks": 4, 
+      "long_url": "http://www.djangoproject.com/", 
+      "user": null, 
+      "data_added": "2011-02-04 18:33:43"
+    }
+  }, 
+  {
+    "pk": 2, 
+    "model": "shorturl.url", 
+    "fields": {
+      "short_code": "C", 
+      "clicks": 1, 
+      "long_url": "http://petry.cc/", 
+      "user": 1, 
+      "data_added": "2011-02-04 19:10:10"
+    }
+  }, 
+  {
+    "pk": 3, 
+    "model": "shorturl.url", 
+    "fields": {
+      "short_code": "D", 
+      "clicks": 0, 
+      "long_url": "http://www.globo.com/", 
+      "user": 1, 
+      "data_added": "2011-02-05 11:38:41"
+    }
+  }, 
+  {
+    "pk": 4, 
+    "model": "shorturl.url", 
+    "fields": {
+      "short_code": "E", 
+      "clicks": 0, 
+      "long_url": "http://www.yahoo.com/", 
+      "user": 2, 
+      "data_added": "2011-02-05 11:42:57"
+    }
+  }, 
+  {
+    "pk": 5, 
+    "model": "shorturl.url", 
+    "fields": {
+      "short_code": "F", 
+      "clicks": 0, 
+      "long_url": "http://www.google.com/", 
+      "user": null, 
+      "data_added": "2011-02-05 14:44:39"
+    }
+  } 
+
+]

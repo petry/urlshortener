@@ -1,0 +1,29 @@
+{%extends "base.html" %}
+{%block content%}
+	<h2>Details from url "{{object.short_url}}"</h2>
+
+	<h3>Visitors Details</h3>
+		<table summary="Your Urls">
+			<thead>
+				<tr>
+					<th>Data</th>
+					<th>Remote Address</th>
+					<th>User Agent</th>
+				</tr>
+			</thead>
+			<tbody>
+				{%for visitor in object.visitor_set.all%}
+				<tr>
+					<td>{{visitor.data_access}}</td>
+					<td>{{visitor.remote_address}}</td>
+					<td>{{visitor.user_agent}}</td>
+				</tr>
+				{%empty%}
+					<td colspan="3">No data</td>
+				{%endfor%}
+				
+			</tbody>
+		</table>	
+	
+{%endblock%}
+
