@@ -1,15 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+{%extends "base.html" %}
+{%block content%}
 
-<html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>home</title>
-	<meta name="generator" content="TextMate http://macromates.com/">
-	<meta name="author" content="Marcos Daniel Petry">
-	<!-- Date: 2011-02-05 -->
-</head>
-<body>
-	<h1>Home da aplicação d encurtador de url</h1>
-</body>
-</html>
+	<h2>Home</h2>
+	
+	<div class="box">
+		<form action="{%url shorturl-shorten%}" method="POST">
+			{% csrf_token %}
+			{{form}}
+			<input type="submit" value="shorten">
+		</form>
+	</div>
+
+{%endblock%}

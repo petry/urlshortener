@@ -3,15 +3,21 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from shorturl.converter import base62_urlsafe
-
+from django.conf import settings
+from django.contrib.sites.models import Site
 
 
 class Url(models.Model):
     long_url = models.URLField(max_length=4096)
-    short_code = models.CharField(max_length=10, null=True, blank=True)
-    user = models.ForeignKey(User, null=True, blank=True)
+    short_code = models.CharField(max_length=10, null=True, blank=True, editable=False)
+    user = models.ForeignKey(User, null=True, blank=True, editable=False)
     data_added = models.DateTimeField(auto_now_add=True, editable=False)
     clicks = models.PositiveIntegerField(editable=False, default=0)
+    
+    def short_url(self):
+        current_site = Site.objects.get(id=settings.SITE_ID)
+        return u"%s/%s" % (current_site.domain, self.short_code)
+        
 
 
 class Visitor(models.Model):
