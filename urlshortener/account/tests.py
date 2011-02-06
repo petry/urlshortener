@@ -5,6 +5,7 @@ from shorturl.converter import base62_urlsafe
 from django.test.client import Client
 from shorturl.models import Url
 from django.core.urlresolvers import reverse
+from django.contrib.auth.models import User
 
 
 class RequestTest(TestCase):
@@ -20,10 +21,13 @@ class RequestTest(TestCase):
         self.assertEqual(response.status_code,200)
         
         #signup sucessful
+        users = User.objects.count()
         response = self.client.post(reverse('auth-signup'), 
             {'username': 'testX', 'password1': 'x', 'password2':'x'})
         self.assertRedirects(response=response, 
             expected_url="%s" % reverse('auth-login') )
+        self.assertEqual(User.objects.count(), users + 1)
+            
 
         #wrong password
         response = self.client.post(reverse('auth-signup'), 
