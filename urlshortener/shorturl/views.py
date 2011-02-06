@@ -50,7 +50,9 @@ def shorten(request):
             if form.is_valid():
                 form.save()
                 data = {'status':'success',
-                        'shor_code':form.instance.short_code}
+                        'long_url':form.instance.long_url,
+                        'short_url':form.instance.short_url()
+                        }
             else:
                 data = {'status':'error',
                         'error':form.errors}

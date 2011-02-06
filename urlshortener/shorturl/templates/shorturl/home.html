@@ -2,14 +2,16 @@
 {% load i18n %}
 
 {%block content%}
-	<h2>{% trans 'Home' %}</h2>
 	
-	<div class="box">
-		<form action="{%url shorturl-shorten%}" method="POST">
-			{% csrf_token %}
-			{{form}}
-			<input type="submit" value="shorten">
-		</form>
+	
+	
+	<div class="box clearfix">
+		<div class="span-11">
+			{%include "shorturl/short_form.html"%}
+		</div>
+		<div id="short-url" class="span-8 huge">
+			
+		</div>
 	</div>
 	
 	{%if user.is_authenticated%}
@@ -41,4 +43,7 @@
 	
 	{%endif%}
 
+{%endblock%}
+{%block extra_script%}
+	{{form.media}}
 {%endblock%}

@@ -6,11 +6,7 @@
 	{%if form.errors%}
 	<div class="box">
 	
-		<form action="{%url shorturl-shorten%}" method="POST">
-			{% csrf_token %}
-			{{form}}
-			<input type="submit" value="{% trans 'shorten' %}">
-		</form>	
+		{%include "shorturl/short_form.html"%}
 		</div>
 		
 	{%else%}

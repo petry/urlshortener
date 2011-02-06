@@ -76,7 +76,6 @@ class RedirectTest(TestCase):
         self.assertEqual(response.status_code,404)
 
     def test_redirects(self):
-              
         url = reverse('shorturl-urlredirect', args=['C',])
         response = self.client.get(url, follow=True)
         self.assertRedirects(response=response, expected_url='http://petry.cc/', status_code=301)

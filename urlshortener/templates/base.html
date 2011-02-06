@@ -44,6 +44,8 @@
 		</div>
 		<hr>
 		
+		<h1>{%trans 'Shortened URLs'%} - {%trans 'Example project'%}</h1>
+		
 		{% if messages %}
 		<ul class="messages">
 		   {% for message in messages %}
@@ -53,7 +55,6 @@
 		</ul>
 		{% endif %}
 		
-		<h1>{%trans 'Shortened URLs'%} - {%trans 'Example project'%}</h1>
 		{%block content%}
 
 		{%endblock%}
@@ -62,5 +63,7 @@
 
 </body>
 <script type="text/javascript" charset="utf-8" src="{{MEDIA_URL}}js/jquery-1.5.min.js"></script>
-
+<script type="text/javascript" charset="utf-8" src="{{MEDIA_URL}}js/jquery.form.js"></script>
+{%block extra_script%}
+{%endblock%}
 </html>
