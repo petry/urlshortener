@@ -32,35 +32,33 @@ class RequestTest(TestCase):
         self.assertEqual(response.status_code,200)
 
 
-    def test_shorten(self):
-        """
-        if request is ajax, process and show json feedback
-        """
+    def test_shorten_standart(self):
         response1 = self.client.post(reverse('shorturl-shorten'), 
             {'url': 'www.globo.com'})
         self.assertEqual(response1.status_code,200)
-    
-        response2 = self.client.post(reverse('shorturl-shorten'), 
+
+    def test_shorten_ajax(self):
+        response = self.client.post(reverse('shorturl-shorten'), 
             {'url': 'www.globo.com'},
             HTTP_X_REQUESTED_WITH='XMLHttpRequest')
  
-        self.assertEqual(response2.status_code,200)
+        self.assertEqual(response.status_code,200)
     
     
-    def test_detail(self):
-        #annonymous user
+    def test_detail_annonymous(self):
         response = self.client.get(reverse('shorturl-urldetail', args=['C']))
         self.assertRedirects(response=response, 
             expected_url="%s?next=/C/details" % reverse('auth-login'), )
 
-        #user1
+    def test_detail_authenticated(self):
         self.client.login(username='user1', password='b')
         response = self.client.get(reverse('shorturl-urldetail', args=['C']))
         self.assertEqual(response.status_code,200)
         self.assertEqual(Url.objects.get(short_code='C'), response.context['object'])
 
         
-        #redirect
+    def test_detail_authenticated_redirect(self):
+        self.client.login(username='user1', password='b')
         response = self.client.get(reverse('shorturl-urldetail', args=['E']))
         self.assertRedirects(response=response, 
             expected_url=reverse('shorturl-home') )
@@ -73,10 +71,11 @@ class RedirectTest(TestCase):
     def setUp(self):
         self.client = Client()
     
-    def test_access_url(self):
-        #force 404 error
+    def test_404_error(self):
         response = self.client.get(reverse('shorturl-urlredirect', args=['XXXX']))
         self.assertEqual(response.status_code,404)
+
+    def test_redirects(self):
               
         url = reverse('shorturl-urlredirect', args=['C',])
         response = self.client.get(url, follow=True)
