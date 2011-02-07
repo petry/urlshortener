@@ -1,0 +1,10 @@
+[
+  {
+    "pk": 2, 
+    "model": "sites.site", 
+    "fields": {
+      "domain": "http://localhost:8000", 
+      "name": "Django Test Server:"
+    }
+  }
+]
