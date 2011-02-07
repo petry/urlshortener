@@ -41,6 +41,18 @@ def url_detail(request, short_code):
         locals(),
         context_instance=RequestContext(request))
 
+
+from django.core import serializers
+
+@login_required
+def tabledata(request):
+    object_list = Url.objects.filter(user=request.user)
+    return render_to_response('shorturl/url_table.html',
+        locals(),
+        context_instance=RequestContext(request))
+    
+    
+
 def shorten(request):
     if request.method == 'POST':
         form = ShortForm(request.POST)

@@ -1,0 +1,10 @@
+{%load i18n%}
+{%for url in user.url_set.all%}
+<tr>
+	<td><a href="{{url.long_url}}" target="_blank">{{url.long_url}}</a></td>
+	<td><a href="{{url.short_url}}" target="_blank">{{url.short_url}}</a></td>
+	<td>{{url.data_added|timesince}}</td>
+	<td>{{url.access_set.count}}</td>
+	<td><a href="{{url.get_absolute_url }}">{%trans 'Details'%}</a></td>
+</tr>
+{%endfor%}

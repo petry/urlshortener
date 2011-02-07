@@ -32,6 +32,21 @@ class RequestTest(TestCase):
         self.assertEqual(response.status_code,200)
 
 
+    def test_tabledata_annonymous(self):
+         response = self.client.get(reverse('shorturl-tabledata'))
+         self.assertRedirects(response=response, 
+             expected_url="%s?next=%s" % (reverse('auth-login'), reverse('shorturl-tabledata')))
+
+
+
+    def test_tabledata_authenticated(self):
+        self.client.login(username='user1', password='b')
+        response = self.client.get(reverse('shorturl-tabledata'))
+        self.assertEqual(response.status_code,200)
+
+
+
+
     def test_shorten_standart(self):
         response1 = self.client.post(reverse('shorturl-shorten'), 
             {'url': 'www.globo.com'})
@@ -48,7 +63,7 @@ class RequestTest(TestCase):
     def test_detail_annonymous(self):
         response = self.client.get(reverse('shorturl-urldetail', args=['C']))
         self.assertRedirects(response=response, 
-            expected_url="%s?next=/C/details" % reverse('auth-login'), )
+            expected_url="%s?next=%s" % (reverse('auth-login'), reverse('shorturl-urldetail', args=['C'])))
 
     def test_detail_authenticated(self):
         self.client.login(username='user1', password='b')
