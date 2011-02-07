@@ -1,11 +1,12 @@
+# -*- coding: utf-8 -*-
+# Autor: Marcos Daniel Petry - <marcospetry@gmail.com>from datetime import datetime
 from django.db import models
-from datetime import datetime
-from django.contrib.auth.models import User
 from django.db.models.signals import post_save
-from shorturl.converter import base62_urlsafe
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django.core.urlresolvers import reverse
+from shorturl.converter import base62_urlsafe
 
 
 class Url(models.Model):
@@ -18,12 +19,15 @@ class Url(models.Model):
     class Meta:
         ordering = ['-data_added',]
         
+        
     def short_url(self):
         current_site = Site.objects.get(id=settings.SITE_ID)
         return u"%s/%s" % (current_site.domain, self.short_code)
         
+        
     def get_absolute_url(self):
         return reverse('shorturl-urldetail', args=[self.short_code])
+        
         
 
 class Access(models.Model):

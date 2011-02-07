@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# Autor: Marcos Daniel Petry - <marcospetry@gmail.com>
 from django.core.management import execute_manager
 try:
     import settings # Assumed to be in the same directory.

@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-# encoding: utf-8
+# -*- coding: utf-8 -*-
+# Autor: Marcos Daniel Petry - <marcospetry@gmail.com>
 BINARY_ALPHABET      = '01'
 HEXADECIMAL_ALPHABET = '0123456789ABCDEF'
 

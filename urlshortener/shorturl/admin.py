@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-
+# Autor: Marcos Daniel Petry - <marcospetry@gmail.com>from django import forms
 from django.contrib import admin
-from django import forms
 from shorturl.models import Url, Access
-
 
 
 class AccessInline(admin.TabularInline):
@@ -12,6 +10,8 @@ class AccessInline(admin.TabularInline):
     extra = 0
     max_num = 0 
     can_delete = False
+
+
 
 class UrlAdmin(admin.ModelAdmin):
     model = Url

@@ -10,7 +10,4 @@ class ShortForm(forms.ModelForm):
         model = Url
         
     class Media:
-        css = {
-            'all': ('pretty.css',)
-        }
         js = ('%sjs/short_script.js' % settings.MEDIA_URL,)

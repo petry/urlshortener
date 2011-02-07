@@ -1,20 +1,19 @@
-# Create your views here.
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
-from django.template.context import RequestContext
-from django.shortcuts import render_to_response, get_object_or_404
-from shorturl.models import Url, Access
-from shorturl.forms import ShortForm
-from django.utils import simplejson
+# -*- coding: utf-8 -*-
+# Autor: Marcos Daniel Petry - <marcospetry@gmail.com>
 from django.contrib import messages
-from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
+from django.core.urlresolvers import reverse
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
+from django.utils import simplejson
 from django.utils.translation import ugettext_lazy as _
+from django.shortcuts import render_to_response, get_object_or_404
+from django.template.context import RequestContext
+from shorturl.forms import ShortForm
+from shorturl.models import Url, Access
 
 
 def home(request):
-    form = ShortForm()
-
-    
+    form = ShortForm()    
     return render_to_response('shorturl/home.html',
         locals(),
         context_instance=RequestContext(request))
@@ -42,15 +41,12 @@ def url_detail(request, short_code):
         context_instance=RequestContext(request))
 
 
-from django.core import serializers
-
 @login_required
 def tabledata(request):
     object_list = Url.objects.filter(user=request.user)
     return render_to_response('shorturl/url_table.html',
         locals(),
         context_instance=RequestContext(request))
-    
     
 
 def shorten(request):
@@ -69,7 +65,7 @@ def shorten(request):
                 data = {'status':'error',
                         'error':form.errors}
             json = simplejson.dumps(data)
-            return HttpResponse(json,mimetype="application/json")
+            return HttpResponse(json, mimetype="application/json")
         else:
             if form.is_valid():
                 form.save()
@@ -80,5 +76,3 @@ def shorten(request):
     return render_to_response('shorturl/shorten.html',
         locals(),
         context_instance=RequestContext(request))        
-                
-    

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.conf.urls.defaults import *
+# Autor: Marcos Daniel Petry - <marcospetry@gmail.com>
+from django.conf.urls.defaults import patterns, url
 
 
 urlpatterns = patterns('django.contrib.auth.views',
