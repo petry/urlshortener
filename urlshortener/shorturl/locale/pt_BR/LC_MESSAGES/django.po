@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Shorturl App\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-06 16:41-0200\n"
+"POT-Creation-Date: 2011-02-07 02:24-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marcos Daniel Petry <marcospetry@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: views.py:37
+#: views.py:36
 msgid "This URL no belont to you"
 msgstr "Esta URL não pertence a você"
 
-#: views.py:62
+#: views.py:76
 msgid "Url was shorted"
 msgstr "A Url foi diminuida"
 
-#: views.py:64
+#: views.py:78
 msgid "Url not shorted"
 msgstr "A Url não foi diminuida"
 
@@ -39,49 +39,48 @@ msgid "Access Details"
 msgstr "Dados de acesso"
 
 #: templates/shorturl/detail.html:12
-msgid "Date"
-msgstr "Data"
-
-#: templates/shorturl/detail.html:13
-msgid "Remote Address"
-msgstr "Endereço remoto"
-
-#: templates/shorturl/detail.html:14
 msgid "User Agent"
 msgstr ""
 
-#: templates/shorturl/detail.html:25 templates/shorturl/home.html:35
+#: templates/shorturl/detail.html:13
+msgid "Date"
+msgstr "Data"
+
+#: templates/shorturl/detail.html:14
+msgid "Remote Address"
+msgstr "Endereço remoto"
+
+#: templates/shorturl/detail.html:25 templates/shorturl/home.html:38
 msgid "No data"
 msgstr "Sem dados"
 
-#: templates/shorturl/home.html:5
-msgid "Home"
-msgstr "Início"
-
-#: templates/shorturl/home.html:19
+#: templates/shorturl/home.html:22
 msgid "Long Url"
 msgstr "Url Comprida"
 
-#: templates/shorturl/home.html:20
+#: templates/shorturl/home.html:23
 msgid "Short Url"
 msgstr "Url Curta"
 
-#: templates/shorturl/home.html:21
+#: templates/shorturl/home.html:24
 msgid "Created at"
 msgstr "Criado em"
 
-#: templates/shorturl/home.html:22
+#: templates/shorturl/home.html:25
 msgid "Clicks"
 msgstr "Cliques"
 
-#: templates/shorturl/home.html:32
+#: templates/shorturl/home.html:35 templates/shorturl/url_table.html:8
 msgid "Details"
 msgstr "Detalhes"
 
-#: templates/shorturl/shorten.html:12
+#: templates/shorturl/short_form.html:7
 msgid "shorten"
 msgstr "diminuir"
 
-#: templates/shorturl/shorten.html:19
+#: templates/shorturl/shorten.html:15
 msgid "The short url is"
 msgstr "A Url curta é"
+
+#~ msgid "Home"
+#~ msgstr "Início"

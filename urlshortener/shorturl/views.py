@@ -57,9 +57,13 @@ def shorten(request):
         if request.is_ajax():
             if form.is_valid():
                 form.save()
-                data = {'status':'success',
-                        'long_url':form.instance.long_url,
-                        'short_url':form.instance.short_url()
+                long_url = form.instance.long_url
+                short_url = form.instance.short_url()
+                compress = float(len(short_url)) / float(len(long_url))
+                data = {'status' : 'success',
+                        'long_url' : long_url,
+                        'short_url' : short_url,
+                        'compress': format(compress,'%')
                         }
             else:
                 data = {'status':'error',

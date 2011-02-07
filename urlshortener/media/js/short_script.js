@@ -6,11 +6,11 @@ $(document).ready(function() {
     }); 
 });
 function processJson(data) { 
-    $('form#short_form>.errorlist').remove();
+    $('form#short_form>p>.errorlist').remove();
 	
 	if(data.status == 'success'){
 		$('#short-url').html(data.short_url);
-		$('form#short_form>#id_long_url').val(data.long_url);
+		$('form#short_form>p>#id_long_url').val(data.long_url);
 		
         $.get("/api/data/", function(html) { 
             $("table tbody").html(html); 
@@ -18,7 +18,7 @@ function processJson(data) {
         }); 		
 	}
 	if(data.status == 'error'){
-		$('form#short_form>#id_long_url').before('<ul class="errorlist"><li>'+data.error.long_url+'</li></ul>');
+		$('form#short_form>p>#id_long_url').before('<ul class="errorlist"><li>'+data.error.long_url+'</li></ul>');
 		
 	}
 }

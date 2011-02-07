@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Account App\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-06 17:50-0200\n"
+"POT-Creation-Date: 2011-02-07 02:25-0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Marcos Daniel Petry <marcospetry@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,32 +18,32 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: forms.py:6
+#: forms.py:12
 msgid "Username"
 msgstr "Nome do usuário"
 
-#: forms.py:7
+#: forms.py:13
 msgid "Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only."
 msgstr ""
 "Obrigatório, 30 caracteres ou menos. somente letras, numeros ou @/./+/-/_"
 
-#: forms.py:8
+#: forms.py:14
 msgid "This value may contain only letters, numbers and @/./+/-/_ characters."
 msgstr "Esce pampo só pode conter letras, numeros ou @/./+/-/_"
 
-#: views.py:20
+#: views.py:19
 msgid "You are subscribed!"
 msgstr "Você está cadastrado!"
 
-#: views.py:23
+#: views.py:22
 msgid "There was an error when signing up!"
 msgstr "Houve um erro durante o cadastro"
 
-#: views.py:38
+#: views.py:36
 msgid "Profile details updated."
 msgstr "Detalhes do usuário autualizados"
 
-#: views.py:41
+#: views.py:39
 msgid "There was an error when editing your data"
 msgstr "Houve um erro enquanto seus dados era atualizados"
 

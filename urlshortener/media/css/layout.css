@@ -16,11 +16,11 @@ form label{
 
 form#short_form{
 }
-form#short_form>#id_long_url{
+form#short_form>p>#id_long_url{
     font-size: 1.5em;   
     width:300px;   
 }
-form#short_form>input[type=submit]{
+form#short_form>p>input[type=submit]{
     font-size: 1.5em;   
 }
 .warning {

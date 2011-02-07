@@ -9,20 +9,20 @@
 		<table class="tablesorter" id="url_table">
 			<thead>
 				<tr>
-					<th>{% trans 'Date' %}</th>
-					<th>{% trans 'Remote Address'%}</th>
 					<th>{% trans 'User Agent' %}</th>
+					<th class="span-4">{% trans 'Date' %}</th>
+					<th class="span-4">{% trans 'Remote Address'%}</th>
 				</tr>
 			</thead>
 			<tbody>
 				{%for access in object.access_set.all%}
 				<tr>
+					<td>{{access.user_agent}}</td>
 					<td>{{access.date_access}}</td>
 					<td>{{access.remote_address}}</td>
-					<td>{{access.user_agent}}</td>
 				</tr>
 				{%empty%}
-					<td colspan="3">{% trans 'No data' %}</td>
+					<td colspan="3" span="span-24">{% trans 'No data' %}</td>
 				{%endfor%}
 				
 			</tbody>

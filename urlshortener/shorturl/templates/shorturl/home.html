@@ -9,32 +9,33 @@
 		<div class="span-11">
 			{%include "shorturl/short_form.html"%}
 		</div>
-		<div id="short-url" class="span-8 huge">
+		<div id="short-url" class="span-11 huge clearfix">
 			
 		</div>
+
 	</div>
 	
 	{%if user.is_authenticated%}
 		<table class="tablesorter">
 			<thead>
 				<tr>
-					<th>{%trans 'Long Url'%}</th>
-					<th>{%trans 'Short Url'%}</th>
-					<th>{%trans 'Created at'%}</th>
-					<th colspan="2">{%trans 'Clicks'%}</th>
+					<th class="span-12">{%trans 'Long Url'%}</th>
+					<th class="span-6">{%trans 'Short Url'%}</th>
+					<th class="span-4">{%trans 'Created at'%}</th>
+					<th class="span-3" colspan="2">{%trans 'Clicks'%}</th>
 				</tr>
 			</thead>
 			<tbody>
 				{%for url in user.url_set.all%}
 				<tr>
-					<td><a href="{{url.long_url}}" target="_blank">{{url.long_url}}</a></td>
+					<td><a href="{{url.long_url}}" target="_blank">{{url.long_url|urlizetrunc:80 }}</a></td>
 					<td><a href="{{url.short_url}}" target="_blank">{{url.short_url}}</a></td>
 					<td>{{url.data_added|timesince}}</td>
 					<td>{{url.access_set.count}}</td>
 					<td><a href="{{url.get_absolute_url }}">{%trans 'Details'%}</a></td>
 				</tr>
 				{%empty%}
-					<td colspan="4">{%trans 'No data'%}</td>
+					<td colspan="5" class="span-24">{%trans 'No data'%}</td>
 				
 				{%endfor%}
 				
